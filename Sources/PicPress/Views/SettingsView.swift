@@ -12,6 +12,7 @@ struct SettingsView: View {
             processingSection
             outputSection
             systemSection
+            uninstallSection
         }
         .formStyle(.grouped)
         .frame(width: 480)
@@ -133,6 +134,21 @@ struct SettingsView: View {
                         AppState.requestNotificationPermission()
                     }
                 }
+        }
+    }
+
+    private var uninstallSection: some View {
+        Section {
+            HStack {
+                Button("PicPress deinstallieren…", role: .destructive) {
+                    Uninstaller.confirmAndUninstall()
+                }
+                .disabled(!AppState.runsFromAppBundle)
+                Spacer()
+            }
+            Text("Entfernt den Start bei Anmeldung, löscht alle Einstellungen und legt die App in den Papierkorb.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
     }
 

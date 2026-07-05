@@ -6,6 +6,18 @@ enum Main {
     static func main() {
         if CommandLine.arguments.contains("--process") {
             CommandLineRunner.run()
+        } else if CommandLine.arguments.contains("--uninstall") {
+            // Headless-Deinstallation, z. B. für Scripte:
+            //   /Applications/PicPress.app/Contents/MacOS/PicPress --uninstall
+            MainActor.assumeIsolated {
+                do {
+                    try Uninstaller.uninstall()
+                    print("PicPress wurde deinstalliert (App liegt im Papierkorb).")
+                } catch {
+                    FileHandle.standardError.write(Data("Fehler: \(error.localizedDescription)\n".utf8))
+                    exit(1)
+                }
+            }
         } else {
             PicPressApp.main()
         }
