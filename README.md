@@ -38,8 +38,10 @@ Ab jetzt wird jedes Bild, das im überwachten Ordner landet, automatisch konvert
 
 ## Deinstallation
 
-In den Einstellungen „Bei Anmeldung starten“ deaktivieren, die App über das
-Menüleisten-Menü beenden und `PicPress.app` aus dem Programme-Ordner löschen.
+In den Einstellungen ganz unten auf **„PicPress deinstallieren…“** klicken —
+das entfernt den Start bei Anmeldung, löscht alle Einstellungen und legt die
+App in den Papierkorb. (Manuell geht es natürlich auch: App beenden und
+`PicPress.app` aus dem Programme-Ordner löschen.)
 
 ## Selbst bauen
 
