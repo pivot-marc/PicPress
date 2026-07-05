@@ -2,62 +2,62 @@
 
 <img src="Resources/icon-preview.png" width="80" alt="PicPress Icon" align="right">
 
-Menüleisten-App für macOS, die einen Ordner überwacht (z. B. **Downloads**) und neue
-Bilder automatisch komprimiert — standardmäßig als WebP mit maximal 1800 px Breite.
-Einmal einrichten, nie wieder Bilder von Hand verkleinern.
+Menu bar app for macOS that watches a folder (e.g. **Downloads**) and automatically
+compresses new images — by default as WebP with a maximum width of 1800 px.
+Set it up once, never resize images by hand again.
 
 ## Installation
 
-Terminal öffnen und ausführen:
+Open Terminal and run:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/pivot-marc/PicPress/main/install.sh | bash
 ```
 
-Das installiert die neueste Version nach `/Applications` und startet die App.
-Zum Aktualisieren einfach denselben Befehl erneut ausführen.
+This installs the latest version to `/Applications` and launches the app.
+To update, simply run the same command again.
 
-**Erste Schritte:**
+**Getting started:**
 
-1. Das Foto-Symbol erscheint oben rechts in der Menüleiste — beim ersten Start öffnet sich das Einstellungsfenster automatisch.
-2. Wenn macOS nach dem Zugriff auf den Downloads-Ordner fragt: **Erlauben**.
-3. In den Einstellungen **„Bei Anmeldung starten“** aktivieren, damit PicPress immer läuft.
+1. The photo icon appears at the top right of the menu bar — on first launch, the settings window opens automatically.
+2. When macOS asks for access to the Downloads folder: **Allow**.
+3. Enable **"Launch at Login"** in the settings so PicPress is always running.
 
-Ab jetzt wird jedes Bild, das im überwachten Ordner landet, automatisch konvertiert.
+From now on, every image that lands in the watched folder is converted automatically.
 
-## Funktionen
+## Features
 
-- Unterstützt JPG, PNG, GIF, TIFF, BMP, HEIC und WebP als Eingabe
-- Ausgabeformat wählbar: **WebP**, HEIC, JPEG oder PNG
-- Qualität und maximale Breite einstellbar (breitere Bilder werden proportional verkleinert)
-- Original behalten oder in den Papierkorb legen
-- Ausgabe in denselben oder einen eigenen Zielordner
-- Menüleisten-Übersicht: letzte Konvertierungen mit Ersparnis, Klick öffnet die Datei im Finder
-- Wartet, bis Downloads fertig sind; eigene Ausgaben werden nie erneut verarbeitet
-- Native App (SwiftUI), Universal Binary für Apple Silicon und Intel, ab macOS 14
+- Supports JPG, PNG, GIF, TIFF, BMP, HEIC, and WebP as input
+- Selectable output format: **WebP**, HEIC, JPEG, or PNG
+- Adjustable quality and maximum width (wider images are scaled down proportionally)
+- Keep the original or move it to the Trash
+- Output to the same folder or a custom destination folder
+- Menu bar overview: recent conversions with savings, click to reveal the file in Finder
+- Waits until downloads are complete; its own output files are never processed again
+- Native app (SwiftUI), universal binary for Apple Silicon and Intel, requires macOS 14+
 
-## Deinstallation
+## Uninstall
 
-In den Einstellungen ganz unten auf **„PicPress deinstallieren…“** klicken —
-das entfernt den Start bei Anmeldung, löscht alle Einstellungen und legt die
-App in den Papierkorb. (Manuell geht es natürlich auch: App beenden und
-`PicPress.app` aus dem Programme-Ordner löschen.)
+Click **"Uninstall PicPress…"** at the bottom of the settings window —
+this removes the launch-at-login entry, deletes all settings, and moves the
+app to the Trash. (You can also do it manually: quit the app and delete
+`PicPress.app` from the Applications folder.)
 
-## Selbst bauen
+## Building from Source
 
-Voraussetzung: Xcode 15+ bzw. Swift 5.10+.
+Requirements: Xcode 15+ / Swift 5.10+.
 
 ```bash
-./Scripts/build-app.sh   # baut dist/PicPress.app und dist/PicPress.zip
-./Scripts/build-pkg.sh   # baut zusätzlich ein Installationspaket (.pkg)
+./Scripts/build-app.sh   # builds dist/PicPress.app and dist/PicPress.zip
+./Scripts/build-pkg.sh   # additionally builds an installer package (.pkg)
 ```
 
-Hinweis: Das `.pkg` von der Release-Seite ist nicht notarisiert — wird es per Browser
-oder Mail übertragen, blockiert macOS die Installation (Gatekeeper). Die Script-Installation
-oben umgeht das, weil `curl`-Downloads kein Quarantäne-Attribut erhalten. Für eine
-Weitergabe ganz ohne Hinweise lassen sich die Build-Scripts über Umgebungsvariablen
-mit einer Apple-Developer-ID signieren und notarisieren (siehe `Scripts/build-pkg.sh`).
+Note: The `.pkg` from the releases page is not notarized — if it is transferred via
+browser or email, macOS blocks the installation (Gatekeeper). The script installation
+above avoids this because `curl` downloads don't receive a quarantine attribute. For
+distribution without any warnings, the build scripts can be signed and notarized with
+an Apple Developer ID via environment variables (see `Scripts/build-pkg.sh`).
 
-## Lizenz
+## License
 
 [MIT](LICENSE)
